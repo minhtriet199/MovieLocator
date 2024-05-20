@@ -1,0 +1,52 @@
+.HeaderContainer {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .HeaderWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    padding: 0px 10px;
+  }
+  .Logo{
+    width: auto;
+  }
+  .SearchBar{
+    display: flex;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+    font-size: 1em;
+    padding: 5px 15px;
+    align-items: center;
+    gap:5px;
+    @media screen and (min-width: 1440px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 719px) and (min-width: 240px) {
+      display: none;
+    }
+    .SearchBarIcon {
+      width: 0px;
+      transition: width 0.1s linear;
+    }
+
+    .show {
+      width: 24px;
+    }
+
+    input[type="text"]{
+      width: 100%;
+      &:focus{
+        outline: none;
+        border: none;
+      }
+    }
+  }
+
+  .Selected{
+    text-decoration: underline;
+  }
+}

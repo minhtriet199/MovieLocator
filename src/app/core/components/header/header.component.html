@@ -1,1 +1,34 @@
-<p>header works!</p>
+<div class="HeaderContainer">
+  <div class="ContentWrapper HeaderWrapper">
+    <div class="Logo text-3xl" (click)="navigate()">
+      <span class="HeaderFont1">Movie Locator</span>
+    </div>
+    <div class="flex items-center SearchBar">
+      <mat-icon class="SearchBarIcon" [ngClass]="{ show: searchBarFocus }"
+        >search</mat-icon
+      >
+      <input
+        type="text"
+        [attr.placeholder]="'placeholder' | transloco"
+        (focus)="handleFocus(true)"
+        (blur)="handleFocus(false)"
+        (keyup.enter)="onSubmit()"
+      />
+    </div>
+
+    <div class="flex gap-x-2.5 text-xl HeaderFont1">
+      <button
+        (click)="changeLanguage('en')"
+        [ngClass]="{ Selected: (userLocale$ | async) == 'en' }"
+      >
+        En
+      </button>
+      <button
+        (click)="changeLanguage('vi')"
+        [ngClass]="{ Selected: (userLocale$ | async) == 'vi' }"
+      >
+        Vi
+      </button>
+    </div>
+  </div>
+</div>
