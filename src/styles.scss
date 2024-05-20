@@ -1,3 +1,39 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: 'CustomFont1';
+  src: url('../src/assets/fonts/TiltNeon-Regular-VariableFont_XROT\,YROT.ttf') format('truetype');
+  /* Adjust the path and font family name as necessary */
+}
+@font-face {
+  font-family: 'CustomFont2';
+  src: url('../src/assets/fonts/Honk-Regular.ttf') format('truetype');
+}
+
+.HeaderFont1 {
+  font-family: 'CustomFont1', sans-serif;
+}
+.HeaderFont2 {
+  font-family: 'CustomFont2', sans-serif;
+}
+
+.ContentWrapper {
+  height: 100%;
+  margin:0 auto;
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+  @media screen and (max-width: 1439px) and (min-width: 1080px) {
+    width: 1080px;
+  }
+  @media screen and (max-width: 1079px) and (min-width: 720px) {
+    width: 720px;
+  }
+  @media screen and (max-width: 719px) and (min-width: 480px) {
+    width: 480px;
+  }
+}
