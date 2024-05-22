@@ -25,6 +25,9 @@
     @media screen and (min-width: 1440px) {
       width: 50%;
     }
+    @media screen and (min-width: 1080px) {
+      width: 50%;
+    }
     @media screen and (max-width: 719px) and (min-width: 240px) {
       display: none;
     }
@@ -47,6 +50,6 @@
   }
 
   .Selected{
-    text-decoration: underline;
+    border-bottom: 1px lightgray solid;
   }
 }

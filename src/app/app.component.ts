@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
-import { DataStorage } from './core/systems/datastorage';
+import { LocalStorageService } from './core/services/localStorageService';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +9,9 @@ import { DataStorage } from './core/systems/datastorage';
 export class AppComponent implements OnInit{
   title = 'MovieLocator';
 
-  constructor(private _translocoService: TranslocoService) { }
+  constructor(private _translocoService: TranslocoService,private _localStorageService: LocalStorageService) { }
   ngOnInit() {
-    let userLocale: string = DataStorage.getUserLocale();
-
-    this._translocoService.setActiveLang(userLocale);
+    let userLocale: string | null = this._localStorageService.getUserLocale();
+    this._translocoService.setActiveLang(userLocale ?? 'en');
   }
 }

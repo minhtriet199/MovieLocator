@@ -17,18 +17,14 @@
     </div>
 
     <div class="flex gap-x-2.5 text-xl HeaderFont1">
-      <button
-        (click)="changeLanguage('en')"
-        [ngClass]="{ Selected: (userLocale$ | async) == 'en' }"
-      >
-        En
+      <button mat-button [matMenuTriggerFor]="menu" class='flex items-center'>
+        <mat-icon class="SearchBarIcon">public </mat-icon>
+        {{ userLocale | uppercase }}
       </button>
-      <button
-        (click)="changeLanguage('vi')"
-        [ngClass]="{ Selected: (userLocale$ | async) == 'vi' }"
-      >
-        Vi
-      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="changeLanguage('en')" [ngClass]="{ Selected: userLocale == 'en' }">EN</button>
+        <button mat-menu-item (click)="changeLanguage('vi')" [ngClass]="{ Selected: userLocale == 'vi' }">VI</button>
+      </mat-menu>
     </div>
   </div>
 </div>

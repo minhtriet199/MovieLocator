@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
-import { BehaviorSubject } from 'rxjs';
-import { DataStorage } from '../../systems/datastorage';
+import { LocalStorageService } from '../../services/localStorageService';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
-  constructor(private _router: Router,private _translocoService: TranslocoService) { }
-  private userLocale = new BehaviorSubject<string>(DataStorage.getUserLocale());
-  userLocale$ = this.userLocale.asObservable();
+  constructor(private _router: Router,private _translocoService: TranslocoService,private _localStorageService: LocalStorageService) { }
+  userLocale:string | null = this._localStorageService.getUserLocale();
   searchBarFocus: boolean = false;
 
   ngOnInit() {
@@ -28,8 +26,7 @@ export class HeaderComponent implements OnInit{
   }
 
   changeLanguage(language: string) {
-    DataStorage.setUserLocale(language);
-    this.userLocale.next(language);
+    this._localStorageService.setUserLocale(this.userLocale = language);
     this._translocoService.setActiveLang(language);
   }
 }
