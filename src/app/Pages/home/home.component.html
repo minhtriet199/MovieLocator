@@ -1,1 +1,7 @@
-<p>home works! dasdas sd</p>
+@for (item of MoviesList; track $index) {
+  <p>{{item.title  | decodeHtmlEntities}}</p>
+}
+
+<div class='ContentWrapper'>
+  <movie-card></movie-card>
+</div>
