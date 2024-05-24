@@ -9,6 +9,7 @@
       >
       <input
         type="text"
+        [(ngModel)]="search"
         [attr.placeholder]="'placeholder' | transloco"
         (focus)="handleFocus(true)"
         (blur)="handleFocus(false)"
@@ -22,8 +23,8 @@
         {{ userLocale | uppercase }}
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="changeLanguage('en')" [ngClass]="{ Selected: userLocale == 'en' }">EN</button>
-        <button mat-menu-item (click)="changeLanguage('vi')" [ngClass]="{ Selected: userLocale == 'vi' }">VI</button>
+        <button mat-menu-item (click)="changeLanguage('en')" [ngClass]="{ Selected: userLocale == 'en' }">English</button>
+        <button mat-menu-item (click)="changeLanguage('vi')" [ngClass]="{ Selected: userLocale == 'vi' }">Tiếng việt</button>
       </mat-menu>
     </div>
   </div>
